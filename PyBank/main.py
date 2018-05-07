@@ -1,8 +1,8 @@
 import os
 import csv
 
-csvfile = os.path.join(".","PyBank","raw_data","budget_data_2.csv")
-output = os.path.join(".","PyBank","output1.txt")
+csvfile = os.path.join(".","raw_data","budget_data_2.csv")
+output = os.path.join(".","output1.txt")
 
 summary_list = ["Financial Analysis","----------------------------"]
 with open(csvfile, newline = '') as budgetdata:

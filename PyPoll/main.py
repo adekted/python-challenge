@@ -1,8 +1,8 @@
 import os
 import csv
 
-pollresults = os.path.join(".","PyPoll","raw_data","election_data_1.csv")
-output = os.path.join(".","PyPoll","results.txt")
+pollresults = os.path.join(".","raw_data","election_data_1.csv")
+output = os.path.join(".","results.txt")
 
 
 with open(pollresults, newline = '') as polldata:

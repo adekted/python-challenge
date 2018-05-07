@@ -1,8 +1,8 @@
 import os
 import csv
 
-csvfile = os.path.join(".","PyBoss","raw_data","employee_data2.csv")
-output = os.path.join(".","PyBoss","formatted_employee.csv")
+csvfile = os.path.join(".","raw_data","employee_data2.csv")
+output = os.path.join(".","formatted_employee.csv")
 
 us_state_abbrev = {
     'Alabama': 'AL',
@@ -81,3 +81,5 @@ with open(output,'w',newline="") as output:
     writer.writeheader()
     for i in employee_list:
         writer.writerow(i)
+
+print("Formatted CSV Complete.")
