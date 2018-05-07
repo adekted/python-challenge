@@ -1,8 +1,8 @@
 import os
 import csv
 
-csvfile = os.path.join(".","PyBank","raw_data","budget_data_1.csv")
-output = os.path.join(".","PyBank","output1.csv")
+csvfile = os.path.join(".","PyBank","raw_data","budget_data_2.csv")
+output = os.path.join(".","PyBank","output1.txt")
 
 summary_list = ["Financial Analysis","----------------------------"]
 with open(csvfile, newline = '') as budgetdata:
@@ -26,18 +26,14 @@ with open(csvfile, newline = '') as budgetdata:
             min_date = row[0]
             greatest_decrease = int(row[1])
 
-    summary_list.append("Total Months: " + str(months))
-    summary_list.append("Total Revenue: $" + str(total_revenue))
-    summary_list.append("Average Revenue: " + str(total_revenue/months))
-    summary_list.append("Greatest Increase in Revenue: " + max_date + " ("+str(greatest_increase)+")")
-    summary_list.append("Greatest Decrease in Revenue: " + min_date + " ("+str(greatest_decrease)+")")
+with open(output,'w') as resultsfile:
+    resultsfile.write("Financial Analysis\n")
+    resultsfile.write("----------------\n")
+    resultsfile.write("Total Months: " + str(months) + "\n")
+    resultsfile.write("Total Revenue: $" + str(total_revenue) + "\n")
+    resultsfile.write("Average Revenue: " + str(total_revenue/months)  + "\n")
+    resultsfile.write("Greatest Increase in Revenue: " + max_date + " ("+str(greatest_increase)+")\n")
+    resultsfile.write("Greatest Decrease in Revenue: " + min_date + " ("+str(greatest_decrease)+")")
 
-    for row in summary_list:
-        print(row)
-
-''' to be continued
-with open(output, "w") as budgetwriting:
-    writer = csv.writer(budgetwriting)
-    for row in summary_list:
-        writer.write(row)
-'''
+with open(output, 'r') as readresults:
+    print(readresults.read())

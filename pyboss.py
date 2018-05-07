@@ -2,6 +2,7 @@ import os
 import csv
 
 csvfile = os.path.join(".","PyBoss","raw_data","employee_data2.csv")
+output = os.path.join(".","PyBoss","formatted_employee.csv")
 
 us_state_abbrev = {
     'Alabama': 'AL',
@@ -74,5 +75,9 @@ with open(csvfile, newline = '') as employeedata:
         }
         employee_list.append(employee_dict)
 
-for i in employee_list:
-    print(i)
+with open(output,'w',newline="") as output:
+    fieldnames = ["Emp ID","First Name","Last Name","DOB","SSN","State"]
+    writer = csv.DictWriter(output,fieldnames=fieldnames)
+    writer.writeheader()
+    for i in employee_list:
+        writer.writerow(i)
